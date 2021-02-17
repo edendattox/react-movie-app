@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+import "./App.css";
+import Movie from "../src/component/Movie";
+
+const FEATURED_API =
+  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=2b83cbbfed0be4545a7d77bc8d2f75da&page=1";
+const IMG_API = "https://image.tmdb.org/t/p/w1280";
+const SEARCH_API =
+  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=2b83cbbfed0be4545a7d77bc8d2f75da&query=";
+
+const App = () => {
+  const movies = [1, 2, 3];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {movies.map((movie) => (
+        <Movie />
+      ))}
     </div>
   );
-}
+};
 
 export default App;
